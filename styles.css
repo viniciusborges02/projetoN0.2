@@ -1,90 +1,188 @@
-body {
-    font-family: Arial, sans-serif;
+@charset "UTF-8";
+
+@font-face {
+    font-family:'flower';
+    src: url('../fontes/flower.otf');
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: 'suite';
+    src: url(../fontes/suite.ttf);
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: 'oruguitas';
+    src: url('../fontes/oruguitas.otf');
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: 'autolinker';
+    src: url('../fontes/Autolinker.otf');
+    font-weight: normal;
+}
+
+:root {
+    --cor0: #EFAA0F;
+    --cor1: #735135;
+    --cor2: #E5E1D8;
+    --cor3: #B9AD9F;
+    --cor4: #9B8264;
+
+    --fonte-padrao: Arial, Verdana, Helvetica, Sans-Serif;
+    --fonte-flower: 'flower';
+    --fonte-suite: 'suite';
+    --fonte-oruguita: 'oruguitas';
+    --fonte-linker: 'autolinker';
+}
+
+* {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--cor2);
 }
 
 header {
-    background: #f4a261;
-    color: white;
+    background-image: linear-gradient(to bottom, var(--cor1), var(--cor4));
+    width: 100%;
+    min-height: 200px;
     text-align: center;
     padding: 20px 0;
 }
 
-.foto-principal img {
-    width: 100%;
+header > h1 {
+    font-family: var(--fonte-flower);
+    font-size: 3em;
+    color: var(--cor2);
+    text-shadow: 5px 5px 8px black;
+}
+
+menu > ul {
+    list-style-type: none;
+}
+
+h1#proc {
+    font-size: 25px;
+    font-family: var(--fonte-padrao);
+    font-weight: bolder;
+    color: var(--cor2);
+    text-align: center;
+    margin: 30px;
+    text-shadow: 2px 2px 3px black;
+}
+
+main {
+    width: 90%;
+    margin: auto;
+    padding: 20px;
+    background-color: var(--cor3);
+    box-shadow: 0px 0px 8px black;
+    border-radius: 10px;
+}
+
+img#first {
+    max-width: 100%;
     height: auto;
 }
 
-.servicos {
+h1.sobre {
+    font-family: var(--fonte-suite);
+    font-size: 2em;
     text-align: center;
-    margin: 20px 0;
+    padding-top: 30px;
+    margin: 10px;
+    text-shadow: 2px 2px 4px white;
 }
 
-.botoes {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+img {
+    max-width: 100%;
+    display: block;
+    margin: auto; 
 }
 
-.botoes .botao {
-    background: #264653;
-    color: white;
-    padding: 10px 15px;
-    margin: 5px;
+main p {
+    margin: 15px 0;
+    font-family: var(--fonte-padrao);
+    font-size: 1em;
+    font-weight: bolder;
+    text-align: justify;
+    line-height: 1.5em;
+}
+
+main a:hover {
+    color: var(--cor0);
+    text-decoration: underline;
+}
+
+article li {
+    font-family: var(--fonte-padrao);
+    font-weight: bolder;
+    color: var(--cor2);
+    background-image: linear-gradient(to right, var(--cor1), var(--cor4));
+    list-style: none;
+    text-align: center;
+    padding: 10px;
+    margin: 30px;
+    border-radius: 20px;
+    text-shadow: 2px 2px 3px black;
+    box-shadow: 1px 1px 2px black;
+}
+
+article a {
     text-decoration: none;
-    border-radius: 5px;
-    width: 80%; /* Botões ocupam 80% da largura */
-    transition: background 0.3s;
-}
-
-.botoes .botao:hover {
-    background: #1d3557; /* Cor ao passar o mouse */
-}
-
-.sobre-mim {
-    text-align: center;
-    margin: 20px 0;
-}
-
-.parallax {
-    height: 300px; /* Altura padrão para desktop */
-    overflow: hidden;
-    position: relative;
-}
-
-.parallax img {
-    position: absolute;
-    top: 50%; /* Centraliza a imagem verticalmente */
-    left: 50%;
-    width: 150%;
-    height: auto;
-    transform: translate(-50%, -50%);
-    transition: transform 0.5s;
-}
-
-.sobre-mim:hover .parallax img {
-    transform: translate(-50%, -60%); /* Efeito parallax */
 }
 
 footer {
-    background: #2a9d8f;
-    color: white;
+    width: 100%;
+    margin: auto;
+    background-image: linear-gradient(to right, var(--cor4), var(--cor1));
+    padding: 10px;
     text-align: center;
-    padding: 10px 0;
 }
 
+footer > p {
+    font-family: var(--fonte-linker);
+    font-size: 1em;
+}
+
+footer a {
+    text-decoration: none;
+}
+
+footer a:hover {
+    background-color: red;
+    color: white;
+}
+
+/* Efeito parallax */
+.parallax {
+    background-image: url('imagens/img-sobre-mim.jpeg');
+    height: 400px; /* ajuste conforme necessário */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+/* Responsividade */
 @media (max-width: 768px) {
-    .botoes {
-        flex-direction: column;
+    header, footer {
+        padding: 10px;
     }
 
-    .botoes .botao {
-        width: 90%; /* Botões um pouco mais largos em telas pequenas */
+    h1#proc, h1.sobre {
+        font-size: 1.5em;
+        margin: 20px 0;
     }
 
-    .parallax {
-        height: 200px; /* Altura menor para celulares */
+    main {
+        width: 90%;
     }
 }
 

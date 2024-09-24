@@ -35,6 +35,11 @@ header {
     text-decoration: none;
     border-radius: 5px;
     width: 80%; /* Botões ocupam 80% da largura */
+    transition: background 0.3s;
+}
+
+.botoes .botao:hover {
+    background: #1d3557; /* Cor ao passar o mouse */
 }
 
 .sobre-mim {
@@ -43,14 +48,14 @@ header {
 }
 
 .parallax {
-    height: 300px;
+    height: 300px; /* Altura padrão para desktop */
     overflow: hidden;
     position: relative;
 }
 
 .parallax img {
     position: absolute;
-    top: -50%;
+    top: 50%; /* Centraliza a imagem verticalmente */
     left: 50%;
     width: 150%;
     height: auto;
@@ -59,7 +64,7 @@ header {
 }
 
 .sobre-mim:hover .parallax img {
-    transform: translate(-50%, -60%);
+    transform: translate(-50%, -60%); /* Efeito parallax */
 }
 
 footer {
@@ -82,3 +87,4 @@ footer {
         height: 200px; /* Altura menor para celulares */
     }
 }
+
